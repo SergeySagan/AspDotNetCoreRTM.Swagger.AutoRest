@@ -27,17 +27,17 @@ namespace RTMAutoRest.API.Controllers
         }
 
         [HttpGet("{id}/{typeID}/{from}/{to}")]
-        [ProducesResponseType(typeof(TestComplex), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<TestComplex>), (int)HttpStatusCode.OK)]
         public IActionResult GetByManyThings(int id, long typeID, DateTime from, DateTime to)
         {
-            return Ok(new TestComplex() { Id = id });
+            return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
         }
 
         [HttpGet("{id}/{typeID}/{from}/{to}")]
-        [ProducesResponseType(typeof(TestComplex), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<TestComplex>), (int)HttpStatusCode.OK)]
         public IActionResult GetByManyThingsNullable(int id, long typeID, DateTime from, DateTime to, [FromQuery]long? userID = null)
         {
-            return Ok(new TestComplex() { Id = id });
+            return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
         }
 
 
