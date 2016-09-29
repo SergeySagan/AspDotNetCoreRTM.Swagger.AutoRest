@@ -31,8 +31,7 @@ namespace RTMAutoRest.API
         {
             services.AddMvc();
 
-            services.AddSwaggerGen();
-            services.ConfigureSwaggerGen(options =>
+            services.AddSwaggerGen(options =>
             {
                 options.OperationFilter<SwashbuckleOperationFilter>();
                 options.SingleApiVersion(new Info
