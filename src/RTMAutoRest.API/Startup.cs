@@ -34,19 +34,13 @@ namespace RTMAutoRest.API
             services.AddSwaggerGen();
             services.ConfigureSwaggerGen(options =>
             {
+                options.OperationFilter<SwashbuckleOperationFilter>();
                 options.SingleApiVersion(new Info
                 {
                     Version = "v1",
-                    Title = "Test API",
+                    Title = "TestAPI",
                     Description = "A simple ASP.NET Core RTM Test API",
                     TermsOfService = "None"
-                });
-                options.CustomSchemaIds(x =>
-                {
-                    var schemaName = string.Join("", x.FullName.Split('.').Skip(2));
-                    if (string.IsNullOrWhiteSpace(schemaName))
-                        schemaName = x.Name;
-                    return schemaName;
                 });
                 options.DescribeAllEnumsAsStrings();
             });

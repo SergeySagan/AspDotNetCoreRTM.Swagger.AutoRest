@@ -16,14 +16,14 @@ namespace RTMAutoRest.API.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(IEnumerable<TestComplex>))]
         public IActionResult GetAll()
         {
-            return Json(new List<TestComplex> { new TestComplex(), new TestComplex() });
+            return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
         }
 
         [HttpGet("{id}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(TestComplex))]
         public IActionResult GetByID(int id)
         {
-            return Json(new TestComplex() { Id = id });
+            return Ok(new TestComplex() { Id = id });
         }
 
 
@@ -31,7 +31,7 @@ namespace RTMAutoRest.API.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(TestComplex))]
         public IActionResult Post([FromBody]TestComplex complex)
         {
-            return Json(complex);
+            return Ok(complex);
         }
     }
 }

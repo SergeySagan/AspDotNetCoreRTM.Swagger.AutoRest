@@ -20,9 +20,9 @@ namespace RTMAutoRest.Clients
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static object ApiTestComplexV1GetAllGet(this ITestAPI operations)
+            public static object GetAll(this ITestAPI operations)
             {
-                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1GetAllGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).GetAllAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -31,9 +31,9 @@ namespace RTMAutoRest.Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> ApiTestComplexV1GetAllGetAsync(this ITestAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAllAsync(this ITestAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiTestComplexV1GetAllGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAllWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -44,9 +44,9 @@ namespace RTMAutoRest.Clients
             /// </param>
             /// <param name='id'>
             /// </param>
-            public static object ApiTestComplexV1GetByIDByIdGet(this ITestAPI operations, int id)
+            public static object GetByID(this ITestAPI operations, int id)
             {
-                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1GetByIDByIdGetAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).GetByIDAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -57,9 +57,9 @@ namespace RTMAutoRest.Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> ApiTestComplexV1GetByIDByIdGetAsync(this ITestAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetByIDAsync(this ITestAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiTestComplexV1GetByIDByIdGetWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetByIDWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -70,9 +70,9 @@ namespace RTMAutoRest.Clients
             /// </param>
             /// <param name='complex'>
             /// </param>
-            public static object ApiTestComplexV1PostPost(this ITestAPI operations, ModelsTestComplex complex = default(ModelsTestComplex))
+            public static object Post(this ITestAPI operations, TestComplex complex = default(TestComplex))
             {
-                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1PostPostAsync(complex), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).PostAsync(complex), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -83,9 +83,9 @@ namespace RTMAutoRest.Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> ApiTestComplexV1PostPostAsync(this ITestAPI operations, ModelsTestComplex complex = default(ModelsTestComplex), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PostAsync(this ITestAPI operations, TestComplex complex = default(TestComplex), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiTestComplexV1PostPostWithHttpMessagesAsync(complex, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWithHttpMessagesAsync(complex, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
