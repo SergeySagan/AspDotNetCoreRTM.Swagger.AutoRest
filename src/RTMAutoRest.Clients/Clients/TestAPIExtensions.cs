@@ -76,7 +76,7 @@ namespace RTMAutoRest.Clients
             /// </param>
             /// <param name='to'>
             /// </param>
-            public static IList<TestComplex> GetByManyThings(this ITestAPI operations, int id, long typeID, DateTime fromParameter, DateTime to)
+            public static IList<TestComplex> GetByManyThings(this ITestAPI operations, int id, double typeID, DateTime fromParameter, DateTime to)
             {
                 return Task.Factory.StartNew(s => ((ITestAPI)s).GetByManyThingsAsync(id, typeID, fromParameter, to), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -95,7 +95,7 @@ namespace RTMAutoRest.Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<TestComplex>> GetByManyThingsAsync(this ITestAPI operations, int id, long typeID, DateTime fromParameter, DateTime to, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<TestComplex>> GetByManyThingsAsync(this ITestAPI operations, int id, double typeID, DateTime fromParameter, DateTime to, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetByManyThingsWithHttpMessagesAsync(id, typeID, fromParameter, to, null, cancellationToken).ConfigureAwait(false))
                 {

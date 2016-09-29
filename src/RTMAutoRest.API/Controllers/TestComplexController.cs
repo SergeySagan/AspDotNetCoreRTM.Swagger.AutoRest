@@ -13,28 +13,28 @@ namespace RTMAutoRest.API.Controllers
     public class TestComplexController : Controller
     {
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<TestComplex>), (int)HttpStatusCode.OK)]
+        [Produces(typeof(IEnumerable<TestComplex>))]
         public IActionResult GetAll()
         {
             return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(TestComplex), (int)HttpStatusCode.OK)]
+        [Produces(typeof(TestComplex))]
         public IActionResult GetByID(int id)
         {
             return Ok(new TestComplex() { Id = id });
         }
 
         [HttpGet("{id}/{typeID}/{from}/{to}")]
-        [ProducesResponseType(typeof(IEnumerable<TestComplex>), (int)HttpStatusCode.OK)]
-        public IActionResult GetByManyThings(int id, long typeID, DateTime from, DateTime to)
+        [Produces(typeof(IEnumerable<TestComplex>))]
+        public IActionResult GetByManyThings(int id, decimal typeID, DateTime from, DateTime to)
         {
             return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
         }
 
         [HttpGet("{id}/{typeID}/{from}/{to}")]
-        [ProducesResponseType(typeof(IEnumerable<TestComplex>), (int)HttpStatusCode.OK)]
+        [Produces(typeof(IEnumerable<TestComplex>))]
         public IActionResult GetByManyThingsNullable(int id, long typeID, DateTime from, DateTime to, [FromQuery]long? userID = null)
         {
             return Ok(new List<TestComplex> { new TestComplex(), new TestComplex() });
@@ -42,7 +42,7 @@ namespace RTMAutoRest.API.Controllers
 
 
         [HttpPost]
-        [ProducesResponseType(typeof(TestComplex), (int)HttpStatusCode.OK)]
+        [Produces(typeof(TestComplex))]
         public IActionResult Post([FromBody]TestComplex complex)
         {
             return Ok(complex);
