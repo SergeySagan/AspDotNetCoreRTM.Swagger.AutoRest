@@ -10,85 +10,45 @@ namespace RTMAutoRest.Clients
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Rest;
+    using Models;
 
     /// <summary>
     /// Extension methods for TestAPI.
     /// </summary>
     public static partial class TestAPIExtensions
     {
-            /// <summary>
-            /// Gets a list of all of the strings
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<string> ApiValuesGet(this ITestAPI operations)
+            public static object ApiTestComplexV1GetAllGet(this ITestAPI operations)
             {
-                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiValuesGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1GetAllGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets a list of all of the strings
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<string>> ApiValuesGetAsync(this ITestAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> ApiTestComplexV1GetAllGetAsync(this ITestAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiValuesGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ApiTestComplexV1GetAllGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
-            /// <summary>
-            /// Post string
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='value'>
-            /// </param>
-            public static void ApiValuesPost(this ITestAPI operations, string value = default(string))
-            {
-                Task.Factory.StartNew(s => ((ITestAPI)s).ApiValuesPostAsync(value), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Post string
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='value'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task ApiValuesPostAsync(this ITestAPI operations, string value = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.ApiValuesPostWithHttpMessagesAsync(value, null, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <summary>
-            /// Gets string by ID
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
             /// </param>
-            public static string ApiValuesByIdGet(this ITestAPI operations, int id)
+            public static object ApiTestComplexV1GetByIDByIdGet(this ITestAPI operations, int id)
             {
-                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiValuesByIdGetAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1GetByIDByIdGetAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets string by ID
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -97,74 +57,38 @@ namespace RTMAutoRest.Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> ApiValuesByIdGetAsync(this ITestAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> ApiTestComplexV1GetByIDByIdGetAsync(this ITestAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiValuesByIdGetWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ApiTestComplexV1GetByIDByIdGetWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
-            /// <summary>
-            /// Put string
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='id'>
+            /// <param name='complex'>
             /// </param>
-            /// <param name='value'>
-            /// </param>
-            public static void ApiValuesByIdPut(this ITestAPI operations, int id, string value = default(string))
+            public static object ApiTestComplexV1PostPost(this ITestAPI operations, ModelsTestComplex complex = default(ModelsTestComplex))
             {
-                Task.Factory.StartNew(s => ((ITestAPI)s).ApiValuesByIdPutAsync(id, value), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((ITestAPI)s).ApiTestComplexV1PostPostAsync(complex), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Put string
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='value'>
+            /// <param name='complex'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ApiValuesByIdPutAsync(this ITestAPI operations, int id, string value = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> ApiTestComplexV1PostPostAsync(this ITestAPI operations, ModelsTestComplex complex = default(ModelsTestComplex), CancellationToken cancellationToken = default(CancellationToken))
             {
-                await operations.ApiValuesByIdPutWithHttpMessagesAsync(id, value, null, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <summary>
-            /// Delete string by ID
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            public static void ApiValuesByIdDelete(this ITestAPI operations, int id)
-            {
-                Task.Factory.StartNew(s => ((ITestAPI)s).ApiValuesByIdDeleteAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete string by ID
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task ApiValuesByIdDeleteAsync(this ITestAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.ApiValuesByIdDeleteWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false);
+                using (var _result = await operations.ApiTestComplexV1PostPostWithHttpMessagesAsync(complex, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

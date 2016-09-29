@@ -25,7 +25,7 @@ namespace RTMAutoRest.Web.ViewModels
             {
                 ITestAPI testAPI = new TestAPI(new Uri(TestAPIUri));
 
-                isEndpointCallable = testAPI.ApiValuesByIdGet(1) != null;
+                isEndpointCallable = testAPI.ApiTestComplexV1GetByIDByIdGet(1) != null;
             }
             catch (Exception e)
             {

@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RTMAutoRest.API
 {
@@ -27,8 +29,6 @@ namespace RTMAutoRest.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var pathToDoc = "./bin/Debug/netcoreapp1.0/RTMAutoRest.API.xml";
-
             services.AddMvc();
 
             services.AddSwaggerGen();
@@ -41,7 +41,13 @@ namespace RTMAutoRest.API
                     Description = "A simple ASP.NET Core RTM Test API",
                     TermsOfService = "None"
                 });
-                options.IncludeXmlComments(pathToDoc);
+                options.CustomSchemaIds(x =>
+                {
+                    var schemaName = string.Join("", x.FullName.Split('.').Skip(2));
+                    if (string.IsNullOrWhiteSpace(schemaName))
+                        schemaName = x.Name;
+                    return schemaName;
+                });
                 options.DescribeAllEnumsAsStrings();
             });
 

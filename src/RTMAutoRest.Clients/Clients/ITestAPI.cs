@@ -11,9 +11,10 @@ namespace RTMAutoRest.Clients
     using System.Threading.Tasks;
     using Newtonsoft.Json;
     using Microsoft.Rest;
+    using Models;
 
     /// <summary>
-    /// A simple TRM Test API
+    /// A simple ASP.NET Core RTM Test API
     /// </summary>
     public partial interface ITestAPI : IDisposable
     {
@@ -33,33 +34,14 @@ namespace RTMAutoRest.Clients
         JsonSerializerSettings DeserializationSettings { get; }
 
 
-            /// <summary>
-        /// Gets a list of all of the strings
-        /// </summary>
-        /// <param name='customHeaders'>
+            /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<string>>> ApiValuesGetWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> ApiTestComplexV1GetAllGetWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <summary>
-        /// Post string
-        /// </summary>
-        /// <param name='value'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> ApiValuesPostWithHttpMessagesAsync(string value = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Gets string by ID
-        /// </summary>
         /// <param name='id'>
         /// </param>
         /// <param name='customHeaders'>
@@ -68,14 +50,9 @@ namespace RTMAutoRest.Clients
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<string>> ApiValuesByIdGetWithHttpMessagesAsync(int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> ApiTestComplexV1GetByIDByIdGetWithHttpMessagesAsync(int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <summary>
-        /// Put string
-        /// </summary>
-        /// <param name='id'>
-        /// </param>
-        /// <param name='value'>
+        /// <param name='complex'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -83,20 +60,7 @@ namespace RTMAutoRest.Clients
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> ApiValuesByIdPutWithHttpMessagesAsync(int id, string value = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Delete string by ID
-        /// </summary>
-        /// <param name='id'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> ApiValuesByIdDeleteWithHttpMessagesAsync(int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> ApiTestComplexV1PostPostWithHttpMessagesAsync(ModelsTestComplex complex = default(ModelsTestComplex), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }
