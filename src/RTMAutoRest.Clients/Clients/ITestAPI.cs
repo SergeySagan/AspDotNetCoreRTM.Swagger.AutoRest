@@ -66,7 +66,7 @@ namespace RTMAutoRest.Clients
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<TestComplex>> GetByManyThingsWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<TestComplex>>> GetByManyThingsWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='id'>
         /// </param>
@@ -84,7 +84,7 @@ namespace RTMAutoRest.Clients
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<TestComplex>> GetByManyThingsNullableWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, long? userID = default(long?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<TestComplex>>> GetByManyThingsNullableWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, long? userID = default(long?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='complex'>
         /// </param>

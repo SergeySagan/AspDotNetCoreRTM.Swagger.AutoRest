@@ -370,7 +370,7 @@ namespace RTMAutoRest.Clients
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TestComplex>> GetByManyThingsWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<TestComplex>>> GetByManyThingsWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -445,7 +445,7 @@ namespace RTMAutoRest.Clients
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TestComplex>();
+            var _result = new HttpOperationResponse<IList<TestComplex>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -454,7 +454,7 @@ namespace RTMAutoRest.Clients
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TestComplex>(_responseContent, this.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TestComplex>>(_responseContent, this.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -492,7 +492,7 @@ namespace RTMAutoRest.Clients
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TestComplex>> GetByManyThingsNullableWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, long? userID = default(long?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<TestComplex>>> GetByManyThingsNullableWithHttpMessagesAsync(int id, long typeID, DateTime fromParameter, DateTime to, long? userID = default(long?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -577,7 +577,7 @@ namespace RTMAutoRest.Clients
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TestComplex>();
+            var _result = new HttpOperationResponse<IList<TestComplex>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -586,7 +586,7 @@ namespace RTMAutoRest.Clients
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TestComplex>(_responseContent, this.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TestComplex>>(_responseContent, this.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -618,6 +618,10 @@ namespace RTMAutoRest.Clients
         /// </return>
         public async Task<HttpOperationResponse<TestComplex>> PostWithHttpMessagesAsync(TestComplex complex = default(TestComplex), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (complex != null)
+            {
+                complex.Validate();
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;

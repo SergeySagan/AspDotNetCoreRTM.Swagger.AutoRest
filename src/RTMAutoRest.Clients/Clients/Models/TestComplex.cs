@@ -21,7 +21,7 @@ namespace RTMAutoRest.Clients.Models
         /// <summary>
         /// Initializes a new instance of the TestComplex class.
         /// </summary>
-        public TestComplex(long? id = default(long?), IList<string> names = default(IList<string>))
+        public TestComplex(long id, IList<string> names = default(IList<string>))
         {
             Id = id;
             Names = names;
@@ -30,12 +30,18 @@ namespace RTMAutoRest.Clients.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public long? Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "names")]
         public IList<string> Names { get; set; }
 
+        /// <summary>
+        /// Validate the object. Throws ValidationException if validation fails.
+        /// </summary>
+        public virtual void Validate()
+        {
+        }
     }
 }
